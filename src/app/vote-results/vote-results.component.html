@@ -1,0 +1,15 @@
+<div id="chart">
+  <h4>RoomCode:</h4>
+  {{this.id}}
+  <h4>Topic:</h4>
+  {{this.topic}}
+  <h4>Total Votes:</h4>
+  {{this.voteData.totalVotes}}
+  <h4>Vote Options:</h4>
+  <li *ngFor="let voteOption of this.voteData.voteOptions">
+
+    {{voteOption.label}}
+    :
+    {{voteOption.voteCount}}
+  </li>
+</div>
