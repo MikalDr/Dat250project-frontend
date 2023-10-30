@@ -17,6 +17,12 @@ public roomData: any;
     private http: HttpClient
   ) {}
 
+  ngOnInit(): void {
+    if(sessionStorage.getItem("token")) {
+        this.router.navigate(["/home"]);
+    }
+  }
+
   public connectToRoom(){
     this.router.navigate(["/room/"+this.roomCode]);
     this.http.get<any>("/api/poll?roomCode="+ this.roomCode).subscribe(res => {

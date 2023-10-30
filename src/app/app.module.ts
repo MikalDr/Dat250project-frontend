@@ -15,6 +15,9 @@ import { CreatePollComponent } from './create-poll/create-poll.component';
 import { ProfileComponent } from './profile/profile.component';
 import { VoteResultsComponent } from './vote-results/vote-results.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { HeaderComponent } from './header/header.component';
+import { HomeLoggedComponent } from './home-logged/home-logged.component';
+import { CreateTopicComponent } from './create-topic/create-topic.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { NgApexchartsModule } from "ng-apexcharts";
     CreatePollComponent,
     ProfileComponent,
     VoteResultsComponent,
+    HeaderComponent,
+    HomeLoggedComponent,
+    CreateTopicComponent,
   ],
   imports: [
     BrowserModule,

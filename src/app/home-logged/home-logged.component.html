@@ -1,0 +1,19 @@
+<div>
+  <h1> Welcome to FeedApp! </h1>
+
+    <!-- Connect to room -->
+    <div>
+        <label for="roomCode">RoomCode: </label>
+        <input type="text" name="roomCode" [(ngModel)]="roomCode" #username="ngModel" required/>
+        <button type = button (click)='connectToRoom()'> Join room </button>
+    <div>
+
+    <!-- Links to other pages -->
+    <div>
+      <button type = button (click)="goToProfile()"> Profile </button>
+    </div>
+
+    <div>
+      <button type = button (click)="goToCreateTopic()" > Create Topic </button>
+    </div>
+  </div>

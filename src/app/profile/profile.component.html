@@ -1,1 +1,18 @@
-<p>profile works!</p>
+<div>
+
+  <h1>Hi {{this.userData.username}}!</h1>
+
+  <div>
+  <button (click)="to_my_polls()"> My polls </button>
+  </div>
+
+  <div>
+    <button (click)="to_voted_polls()"> Polls voted on </button>
+  </div>
+
+  <div>
+  <button (click)="logout()"> Logout </button>
+  </div>
+
+</div>
+

@@ -1,0 +1,22 @@
+div {
+  background-color: black;
+  width: 100vw;
+  height: 3vh;
+  padding-left: 1vw;
+}
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  margin-top: .5vh;
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
+
+a:hover {
+  color: gray
+}
