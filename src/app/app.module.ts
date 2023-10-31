@@ -14,10 +14,10 @@ import { VoteMenuComponent } from './vote-menu/vote-menu.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
 import { ProfileComponent } from './profile/profile.component';
 import { VoteResultsComponent } from './vote-results/vote-results.component';
-import { NgApexchartsModule } from "ng-apexcharts";
 import { HeaderComponent } from './header/header.component';
 import { HomeLoggedComponent } from './home-logged/home-logged.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -33,13 +33,13 @@ import { CreateTopicComponent } from './create-topic/create-topic.component';
     HeaderComponent,
     HomeLoggedComponent,
     CreateTopicComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgApexchartsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
