@@ -18,6 +18,10 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { HeaderComponent } from './header/header.component';
 import { HomeLoggedComponent } from './home-logged/home-logged.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { CreateTopicComponent } from './create-topic/create-topic.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

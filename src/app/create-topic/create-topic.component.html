@@ -1,1 +1,24 @@
-<p>create-topic works!</p>
+<div>
+  <p>Create Topic</p>
+  <div>
+    <label for="topicName">Topic Name:</label>
+    <input name="topicName">
+  </div>
+  <div>
+    <label for="private-slider">Private</label>
+    <mat-slide-toggle [(ngModel)]="isPrivate" name="private-slider"></mat-slide-toggle>
+  </div>
+  <div>
+    <ng-form>
+      <p>Add options:</p>
+      <li *ngFor="let key of voteOptionKeys">
+        <input [(ngModel)]="voteOptions.key" value="{{voteOptions[key]}}">
+        <button (click)="deleteOption(key)">X</button>
+      </li>
+      <button (click)="addOption()">+</button>
+    </ng-form>
+  </div>
+  <div>
+    <button (click)="addOption()">Send Topic</button>
+  </div>
+</div>
