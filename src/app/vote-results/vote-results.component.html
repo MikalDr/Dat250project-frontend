@@ -1,15 +1,18 @@
-<div id="chart">
-  <h4>RoomCode:</h4>
-  {{this.id}}
-  <h4>Topic:</h4>
-  {{this.topic}}
-  <h4>Total Votes:</h4>
-  {{this.voteData.totalVotes}}
-  <h4>Vote Options:</h4>
-  <li *ngFor="let voteOption of this.voteData.voteOptions">
-
-    {{voteOption.label}}
-    :
-    {{voteOption.voteCount}}
-  </li>
-</div>
+<body>
+<div id="screenBox">
+    <h4>RoomCode:</h4>
+    {{this.id}}
+    <h4>Topic:</h4>
+    {{this.topic}}
+    <h4>Total Votes:</h4>
+    {{this.voteData.totalVotes}}
+    <h4>Vote Options:</h4>
+    <li *ngFor="let voteOption of voteData.voteOptions">
+      {{ voteOption.label }}: {{ voteOption.voteCount }}
+      <div class="pie" [style.--p]="(voteOption.voteCount / voteData.totalVotes) * 100"
+        style="--b: 10px; --c: purple;">
+        {{ (voteOption.voteCount / voteData.totalVotes) * 100 }}%
+      </div>
+    </li>
+  </div>
+</body>

@@ -1,0 +1,92 @@
+// Custom COLORS
+$color1: #FCFCFC;
+$color2: #F7567C;
+$color3: #FFFAE3;
+$color4: #99E1D9;
+$color5: #5D576B;
+
+
+body {
+  font-family: Helvetica Neue, sans-serif;
+  background-color: $color5;
+  text-align: center;
+  margin: 0px;
+  padding: 30px;
+  height: 100vh;
+  list-style-type: none;
+}
+
+h1 {
+  color: #333;
+  margin-top: 30px;
+  color: $color1;
+}
+
+#screenBox {
+  background-color: $color3;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  color: $color5;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid $color5;
+  border-radius: 4px;
+}
+
+button {
+  background-color: $color4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: $color2;
+}
+
+a {
+  padding: 5px;
+  padding-top: 10px;
+}
+
+#loginBox {
+  margin-top: 15px;
+}
+
+.pie {
+    --w:150px;
+    
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    place-content: center;
+    margin: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+  .pie:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 0;
+    background: conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+    -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+            mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+  }
