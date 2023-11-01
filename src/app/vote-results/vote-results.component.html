@@ -10,8 +10,8 @@
     <li *ngFor="let voteOption of voteData.voteOptions">
       {{ voteOption.label }}: {{ voteOption.voteCount }}
       <div class="pie" [style.--p]="(voteOption.voteCount / voteData.totalVotes) * 100"
-        style="--b: 10px; --c: purple;">
-        {{ (voteOption.voteCount / voteData.totalVotes) * 100 }}%
+      [style.--c]="getRandomColor()" style="--b: 10px;">
+        {{ roundDownPercentage(voteOption.voteCount, voteData.totalVotes) }}%
       </div>
     </li>
   </div>
