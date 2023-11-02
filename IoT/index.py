@@ -12,7 +12,6 @@ url = "http://localhost:8080/api/iot"
 pollRequest = requests.get(url, params=tokenParam)
 if pollRequest.status_code == 200:
     pollJson = pollRequest.json()
-    print(pollJson)
 
     # extract voteOptions + add voteCount to json
     body = pollJson["topic"]["voteOptions"]
@@ -45,8 +44,7 @@ if pollRequest.status_code == 200:
         else:
             print("Invalid input")
 
-    print("Tallied votes: \n"+body)
-
+    print(body)
     headers = {
         #'Authorization': token,
         "Content-Type": "application/json"
