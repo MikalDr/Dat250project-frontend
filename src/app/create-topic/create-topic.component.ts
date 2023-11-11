@@ -20,10 +20,24 @@ export class CreateTopicComponent {
   startDate = new Date(2001, 10, 5);
   endDate = new Date(2030, 10, 5);
 
+  topic = {
+    name: "",
+    voteOptions: "",
+  }
+  poll = {
+
+  }
+
   constructor(
     private router: Router,
     private http: HttpClient,
   ) {}
+
+  ngOnInit(): void {
+    if(!sessionStorage.getItem("token")) {
+      this.router.navigate(["/login"]);
+    }
+  }
 
   public deleteOption(option: any) {
     delete this.voteOptions[option];

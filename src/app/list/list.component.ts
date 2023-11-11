@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -11,9 +12,13 @@ export class ListComponent implements OnInit {
 
   topics: any[] = [];
 
-  constructor(private http: HttpClient, private clipboard: Clipboard) {}
+  constructor(private http: HttpClient, private router: Router, private clipboard: Clipboard) {}
 
   ngOnInit(): void {
+    if(!sessionStorage.getItem("token")) {
+      this.router.navigate(["/login"]);
+    }
+
     this.http.get<any>("/api/topic").pipe().subscribe(res => {
       if (res) {
         console.log(res)
