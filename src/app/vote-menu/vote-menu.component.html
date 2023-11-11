@@ -1,10 +1,12 @@
-  <!-- Display Room -->
-  <h1>Room</h1>
-  <div>
-    {{roomData.topic.name}}
-    <li *ngFor="let option of roomData.topic.voteOptions">
-      <button type="button" (click) = "vote(roomData.id, option.id)">
-      {{option.label}}
-      </button>
-    </li>
-</div>
+<body>
+<!-- Display Room -->
+    <h1>Room</h1>
+    <div id="screenBox">
+      {{roomData.topic.name}}
+      <li *ngFor="let option of roomData.topic.voteOptions">
+        <button type="button" (click) = "vote(roomData.id, option.id)" id="loginBox">
+        {{option.label}}
+        </button>
+      </li>
+  </div>
+</body>

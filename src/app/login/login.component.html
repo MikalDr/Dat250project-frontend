@@ -1,16 +1,18 @@
-<h1>Login</h1>
-<form name="form" (ngSubmit)="login()" #f="ngForm">
-  <div>
-      <label for="username">Username</label>
-      <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-  </div>
+<body>
+  <h1>Login</h1>
+  <form name="form" (ngSubmit)="login()" #f="ngForm" id ="screenBox">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+    </div>
 
-  <div>
-    <label for="passord">Password</label>
-    <input type="text" name="password" [(ngModel)]="model.password" #passord="ngModel" required />
-  </div>
+    <div>
+      <label for="passord">Password</label>
+      <input type="text" name="password" [(ngModel)]="model.password" #passord="ngModel" required />
+    </div>
 
-  <div>
-    <button>Login</button>
-  </div>
-</form>
+    <div>
+      <button>Login</button>
+    </div>
+  </form>
+</body>

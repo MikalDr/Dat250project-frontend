@@ -8,6 +8,7 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
     if(state.url= "/") {
       return true;
     }
+
     if (state.url == "/room/*") {
       return true;
     }
