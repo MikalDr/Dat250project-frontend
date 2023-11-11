@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any>("/api/topic?sessionId="+sessionStorage.getItem('token')).pipe().subscribe(res => {
+    this.http.get<any>("/api/topic").pipe().subscribe(res => {
       if (res) {
         this.topics = res
       }
