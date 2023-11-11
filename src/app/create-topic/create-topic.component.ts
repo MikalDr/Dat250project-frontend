@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-topic',
@@ -16,9 +14,15 @@ export class CreateTopicComponent {
   public voteOptions: any = {"1":"Yes", "2":"No"};
   public voteOptionKeys: Set<any> = new Set(["1", "2"]);
 
+  minDate = new Date(2000, 1, 1);
+  maxDate = new Date(3000, 1, 1);
+
+  startDate = new Date(2001, 10, 5);
+  endDate = new Date(2030, 10, 5);
+
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   public deleteOption(option: any) {

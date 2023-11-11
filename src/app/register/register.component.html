@@ -1,19 +1,19 @@
 <body>
   <h1>Register</h1>
-  <form name="form" #f="ngForm" id="screenBox">
+  <form name="form" (ngSubmit)="register()" #f="ngForm" id="screenBox">
     <div>
         <label for="username">Username</label>
-        <input type="text" name="username" required />
+        <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required />
     </div>
 
     <div>
       <label for="email">Email</label>
-      <input type="text" name="email" required />
+      <input type="text" name="email" [(ngModel)]="model.email" #email="ngModel" required />
     </div>
 
     <div>
       <label for="passord">Password</label>
-      <input type="text" name="password" required />
+      <input type="text" name="password" [(ngModel)]="model.password" #password="ngModel" required />
     </div>
 
     <div>

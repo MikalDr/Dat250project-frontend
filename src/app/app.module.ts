@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 
@@ -20,9 +20,15 @@ import { HomeLoggedComponent } from './home-logged/home-logged.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +43,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     VoteResultsComponent,
     HeaderComponent,
     HomeLoggedComponent,
-    CreateTopicComponent,
+    CreateTopicComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,11 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatSlideToggleModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    ClipboardModule
+    MatButtonModule,
+    MatInputModule,
+    MatNativeDateModule,
+    ClipboardModule,
+    DatePipe
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

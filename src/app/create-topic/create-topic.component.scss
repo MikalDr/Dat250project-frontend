@@ -77,3 +77,15 @@ a {
 #removeButton:hover {
     background-color: $color5;
 }
+
+.date-form-field {
+  margin-right: 20px;
+  height: auto;
+}
+
+.matStartDate {
+  height:20px;
+}
+.matEndDate {
+  height: 0px;
+}
