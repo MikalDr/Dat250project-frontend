@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class MyTopicsComponent implements OnInit {
   topics: any[] = [];
   confusedMessage: any = ""
-
+  selectedTopic: any;
   constructor(private http: HttpClient, private router: Router, private clipboard: Clipboard) { }
 
   ngOnInit(): void {
@@ -20,10 +20,13 @@ export class MyTopicsComponent implements OnInit {
     }
     this.http.get<any>("/api/topic").pipe().subscribe((res) => {
       if (res) {
-        console.log(res)
         this.topics = res
-        if(this.topics.length == 0){
-          this.confusedMessage = "You have no created polls.";
+        if (this.topics.length == 0) {
+          this.confusedMessage = "You have no created Topics.";
+          this.selectedTopic = null;
+        }
+        else {
+          this.selectedTopic = this.topics[0];
         }
       }
       else {
@@ -56,25 +59,26 @@ export class MyTopicsComponent implements OnInit {
     this.router.navigate([`/room/${roomCode}/result`]);
   }
 
-  toCreatePoll() : void {
+  toCreatePoll(): void {
     this.router.navigate([`/create-poll`]);
   }
 
-  deletePoll(id : number){
+  deletePoll(id: number) {
     this.http.delete<any>("/api/poll/" + id, {}).subscribe(res => {
       if (res) {
-        console.log(res)
-        this.ngOnInit();
+        this.selectedTopic.polls = this.selectedTopic.polls.filter((poll: { id: number; }) => poll.id !== res.id);
+        this.topics = this.topics.filter(topic => topic.id !== res.topic.id);
+        this.topics.push(this.selectedTopic);
+        //this.ngOnInit();
       } else {
         alert("Get IoT token failed.");
       }
     })
   }
 
-  deleteTopic(id : number){
+  deleteTopic(id: number) {
     this.http.delete<any>("/api/topic/" + id, {}).subscribe(res => {
       if (res) {
-        console.log(res)
         this.ngOnInit();
       } else {
         alert("Get IoT token failed.");

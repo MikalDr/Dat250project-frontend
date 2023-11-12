@@ -5,7 +5,7 @@
       <p class="errorMessage">{{errorMessage}}</p>
       <div>
         <label for="topicName">Topic Name:</label>
-        <input [(ngModel)]="topic.name" name="topicName" value = "My Topic">
+        <input type="text" [(ngModel)]="topic.name" name="topicName" value = "My Topic">
       </div>
       <div>
         <label for="private-slider">Private</label>
@@ -22,7 +22,7 @@
         </mat-form-field>
       </div>
       <div>
-        <p>Start Date:</p>
+        <p>End Date:</p>
         <mat-form-field>
           <mat-label>Choose a date</mat-label>
           <input [(ngModel)]="endDate" matInput [matDatepicker]="picker2">

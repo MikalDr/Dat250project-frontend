@@ -67,3 +67,19 @@ a {
 #loginBox {
   margin-top: 15px;
 }
+
+select {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid $color5;
+  border-radius: 5px; 
+  background-color: $color1; 
+  color: $color5;
+}
+
+select option {
+  background-color: $color1;
+  color: $color5;
+  padding: 5px 10px;
+}

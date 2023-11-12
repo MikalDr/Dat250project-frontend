@@ -9,8 +9,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class CreatePollComponent {
   topics: any[] = [];
-  selectedTopic: any = {};
+  selectedTopic: any;
   isPrivate: boolean = false;
+  confusedMessage: string = "";
 
   startDate = new Date(2023, 10, 13);
   endDate = new Date(2023, 10, 13);
@@ -28,8 +29,14 @@ export class CreatePollComponent {
   getTopics() {
     this.http.get<any>("/api/topic").pipe().subscribe((res) => {
       if (res) {
-        console.log(res)
         this.topics = res
+        if (this.topics.length === 0){
+          this.confusedMessage = "You have no created Topics!";
+          this.selectedTopic = null;
+        }
+        else{
+          this.selectedTopic = this.topics[0];
+        }
       }
       else {
         alert("Failed to query list")
@@ -47,8 +54,7 @@ export class CreatePollComponent {
   }
 
   createPoll() {
-    console.log(this.selectedTopic);
-    let url = "/api/poll/" + this.selectedTopic;
+    let url = "/api/poll/" + this.selectedTopic.id;
     this.http.post<any>(url, {
       "startDate": this.startDate.toISOString(),
       "endDate":  this.endDate.toISOString(),
