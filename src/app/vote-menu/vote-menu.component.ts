@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -9,8 +9,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class VoteMenuComponent {
   id: number | undefined;
-  public roomData: any;
+  public roomData: any = {
+    topic: {
+      name: ""
+    }
+  };
   private sub: any;
+  error: any = "";
+  urlpath: any = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +46,9 @@ export class VoteMenuComponent {
           //route to the result page of the poll
           this.router.navigate(["/room/"+this.id+"/result"]);
         }
+      },
+      (error:HttpErrorResponse) => {
+        this.error = error.headers.get("Message") +". Press this to go to the result page."
       }
     )
   }
@@ -48,6 +57,7 @@ export class VoteMenuComponent {
     this.http.get<any>("/api/poll?roomCode="+ this.id).subscribe(res => {
       if (res) {
         this.roomData = res;
+        this.urlpath = "/room/"+ this.id +"/result";
       } else {
         alert("Authentication failed.");
       }

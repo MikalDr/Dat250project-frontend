@@ -2,7 +2,8 @@
 <!-- Display Room -->
     <h1>Room</h1>
     <div id="screenBox">
-      {{roomData.topic.name}}
+      <p>{{roomData.topic.name}}</p>
+      <a [routerLink]="[urlpath]" class = "errorMessage">{{error}}</a>
       <li *ngFor="let option of roomData.topic.voteOptions">
         <button type="button" (click) = "vote(roomData.id, option.id)" id="loginBox">
         {{option.label}}

@@ -5,6 +5,7 @@
         <!-- Connect to room -->
         <div>
             <label for="roomCode">RoomCode: </label>
+            <p class = errorMessage>{{errorMessage}}</p>
             <input type="text" name="roomCode" [(ngModel)]="roomCode" #username="ngModel" required/>
             <button type = button (click)='connectToRoom()'> Join room </button>
         </div>
@@ -19,4 +20,4 @@
         </div>
       </div>
     </div>
-</body> 
+</body>
