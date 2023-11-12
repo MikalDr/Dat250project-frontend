@@ -67,3 +67,16 @@ a {
 #loginBox {
   margin-top: 15px;
 }
+
+.MikalBox {
+
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: center;
+}
+.li {
+  list-style-type: none;
+}

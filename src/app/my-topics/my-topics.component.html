@@ -2,11 +2,10 @@
   <h1>My Topics</h1>
   <div id="screenBox">
     <p>{{confusedMessage}}</p>
-    <ul *ngFor="let topic of topics">
+    <ul class="MikalBox" *ngFor="let topic of topics">
       <h2>{{topic.name}}</h2>
-      <button (click)="toCreatePoll()">Create Poll</button>
       <button (click)="deleteTopic(topic.id)">DELETE TOPIC</button>
-      <li *ngFor="let poll of topic.polls">
+      <ul *ngFor="let poll of topic.polls" class="MikalBox">
       <br>
         <div>
           RoomCode:  {{poll.roomCode}}
@@ -25,7 +24,10 @@
           <br>
         </div>
         <br>
-      </li>
+      </ul>
     </ul>
+    <div>
+    <button (click)="toCreatePoll()">Create Poll</button>
+    </div>
   </div>
 </body>

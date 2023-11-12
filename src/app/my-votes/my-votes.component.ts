@@ -40,7 +40,7 @@ export class MyVotesComponent {
         this.votes = res
 
         if(this.votes.length == 0){
-          this.confusedMessage = "You have not votes on any poll."
+          this.confusedMessage = "You have not voted on any poll."
         }
 
         res.forEach(vote => {

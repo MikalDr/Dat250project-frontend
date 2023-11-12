@@ -12,6 +12,9 @@ export class CreatePollComponent {
   selectedTopic: any = {};
   isPrivate: boolean = false;
 
+  startDate = new Date(2023, 10, 13);
+  endDate = new Date(2023, 10, 13);
+
   constructor(private http: HttpClient, private router: Router,) {
   }
 
@@ -47,8 +50,8 @@ export class CreatePollComponent {
     console.log(this.selectedTopic);
     let url = "/api/poll/" + this.selectedTopic;
     this.http.post<any>(url, {
-      "startDate": "2020-01-12T12:00:00",
-      "endDate": "2023-12-24T12:00:00",
+      "startDate": this.startDate.toISOString(),
+      "endDate":  this.endDate.toISOString(),
       "private": this.isPrivate
     }).subscribe(res => {
       if (res) {
