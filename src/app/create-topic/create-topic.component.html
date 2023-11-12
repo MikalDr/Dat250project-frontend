@@ -4,7 +4,7 @@
     <div id="screenBox">
       <div>
         <label for="topicName">Topic Name:</label>
-        <input name="topicName">
+        <input [(ngModel)]="topic.name" name="topicName">
       </div>
       <div>
         <label for="private-slider">Private</label>
@@ -14,17 +14,17 @@
         <p>DatePicker system (To be implemented)</p>
       </div>
       <div>
-        <ng-form>
+        <form>
           <p>Add options:</p>
           <li *ngFor="let key of voteOptionKeys">
-            <input [(ngModel)]="voteOptions.key" value="{{voteOptions[key]}}">
+            <input [(ngModel)]="voteOptions[key]" value="{{voteOptions[key]}}" [ngModelOptions]="{standalone: true}">
             <button (click)="deleteOption(key)" id="removeButton">X</button>
           </li>
           <button (click)="addOption()" id="loginBox">+</button>
-        </ng-form>
+        </form>
       </div>
       <div id="loginBox">
-        <button (click)="addOption()">Send Topic</button>
+        <button (click)="sendTopic()">Send Topic</button>
       </div>
     </div>
   </div>
