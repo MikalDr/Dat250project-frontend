@@ -2,9 +2,10 @@
  <div>
     <h1>Create Topic</h1>
     <div id="screenBox">
+      <p class="errorMessage">{{errorMessage}}</p>
       <div>
         <label for="topicName">Topic Name:</label>
-        <input [(ngModel)]="topic.name" name="topicName">
+        <input [(ngModel)]="topic.name" name="topicName" value = "My Topic">
       </div>
       <div>
         <label for="private-slider">Private</label>

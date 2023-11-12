@@ -28,6 +28,7 @@ export class CreateTopicComponent {
 
   }
 
+  errorMessage: any = ""
   createdTopic = null
 
   constructor(
@@ -64,6 +65,12 @@ export class CreateTopicComponent {
   }
 
   public sendTopic() {
+      if (this.topic.name == "") {
+        this.errorMessage = "Topic name can not be empty!"
+      }
+      else if (this.getVoteOptions().length < 2) {
+        this.errorMessage = "You need a minimum of two voteoptions!"
+      } else {
       let url = "/api/topic";
       this.http.post<any>(url, {
         name: this.topic.name,
@@ -77,6 +84,7 @@ export class CreateTopicComponent {
         } else {
         }
       })
+    }
   }
   public sendPoll() {
     let url = "/api/poll/"+this.createdTopic;

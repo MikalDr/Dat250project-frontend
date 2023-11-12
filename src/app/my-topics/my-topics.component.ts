@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MyTopicsComponent implements OnInit {
   topics: any[] = [];
+  confusedMessage: any = ""
 
   constructor(private http: HttpClient, private router: Router, private clipboard: Clipboard) { }
 
@@ -21,6 +22,9 @@ export class MyTopicsComponent implements OnInit {
       if (res) {
         console.log(res)
         this.topics = res
+        if(this.topics.length == 0){
+          this.confusedMessage = "You have no created polls."
+        }
       }
       else {
         alert("Failed to query list")

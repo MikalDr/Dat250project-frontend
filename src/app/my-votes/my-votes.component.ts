@@ -22,6 +22,8 @@ export class MyVotesComponent {
   selectedOption: any = {
   };
 
+  confusedMessage: any = ""
+
   constructor(
     private router: Router,
     private http: HttpClient
@@ -36,6 +38,10 @@ export class MyVotesComponent {
       if (res) {
         console.log(res)
         this.votes = res
+
+        if(this.votes.length == 0){
+          this.confusedMessage = "You have not votes on any poll."
+        }
 
         res.forEach(vote => {
             this.http.get<any>("/api/poll/" + vote.poll).subscribe(res => {

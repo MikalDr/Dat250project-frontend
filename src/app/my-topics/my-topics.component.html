@@ -1,6 +1,7 @@
 <body>
   <h1>My Topics</h1>
   <div id="screenBox">
+    <p>{{confusedMessage}}</p>
     <ul *ngFor="let topic of topics">
       <h2>{{topic.name}}</h2>
       <button (click)="deleteTopic(topic.id)">DELETE TOPIC</button>
