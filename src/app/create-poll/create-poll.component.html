@@ -1,1 +1,18 @@
-<p>create-poll works!</p>
+<body>
+    <h1>Create Poll</h1>
+    <div id="screenBox">
+        <label for="topicChanger">Selected Topic</label>
+        <select id="topicChanger" [(ngModel)]="selectedTopic">
+            <option *ngFor="let topic of topics" [value]="topic.id">{{ topic.name }}</option>
+        </select>
+        <div>
+            <label for="private-slider">Private</label>
+            <mat-slide-toggle [(ngModel)]="isPrivate" name="private-slider"></mat-slide-toggle>
+            {{isPrivate}}
+          </div>
+        <div>
+            <p>DatePicker system (To be implemented)</p>
+          </div>
+        <button (click)="createPoll()">Create Poll</button>
+    </div>
+</body>

@@ -23,7 +23,7 @@ export class MyTopicsComponent implements OnInit {
         console.log(res)
         this.topics = res
         if(this.topics.length == 0){
-          this.confusedMessage = "You have no created polls."
+          this.confusedMessage = "You have no created polls.";
         }
       }
       else {
@@ -54,6 +54,10 @@ export class MyTopicsComponent implements OnInit {
 
   toPoll(roomCode: string): void {
     this.router.navigate([`/room/${roomCode}/result`]);
+  }
+
+  toCreatePoll() : void {
+    this.router.navigate([`/create-poll`]);
   }
 
   deletePoll(id : number){

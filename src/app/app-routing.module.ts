@@ -11,6 +11,7 @@ import { HomeLoggedComponent } from './home-logged/home-logged.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
 import { MyVotesComponent } from './my-votes/my-votes.component';
+import { CreatePollComponent } from './create-poll/create-poll.component';
 
 const routes: Routes = [
   {path: "", canActivate:[authenticationGuard], children:[
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: "room/:id", component: VoteMenuComponent},
     { path: "profile", component: ProfileComponent},
     { path: "create-topic", component: CreateTopicComponent},
+    { path: "create-poll", component: CreatePollComponent},
     { path: "room/:id/result", component: VoteResultsComponent},
     { path: "**", redirectTo: ""}
   ]}
