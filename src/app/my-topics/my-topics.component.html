@@ -4,8 +4,10 @@
     <p>{{confusedMessage}}</p>
     <ul *ngFor="let topic of topics">
       <h2>{{topic.name}}</h2>
+      <button (click)="toCreatePoll()">Create Poll</button>
       <button (click)="deleteTopic(topic.id)">DELETE TOPIC</button>
       <li *ngFor="let poll of topic.polls">
+      <br>
         <div>
           RoomCode:  {{poll.roomCode}}
         </div>
@@ -18,7 +20,9 @@
         <div>
           <button (click)="getIotToken(poll.id)">Copy IoT Token.</button>
           <button (click)="toPoll(poll.roomCode)">Go to poll</button>
+          <br>
           <button (click)="deletePoll(poll.id)">DELETE POLL</button>
+          <br>
         </div>
         <br>
       </li>
