@@ -32,12 +32,12 @@ export class ProfileComponent {
     })
   }
 
-  public to_my_polls() {
+  public to_my_topics() {
     this.router.navigate(["/my-topics"]);
   }
 
   public to_voted_polls() {
-
+    this.router.navigate(["/my-votes"]);
   }
 
   public logout() {

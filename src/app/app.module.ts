@@ -7,7 +7,6 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from  '@angular/commo
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ListComponent } from './list/list.component';
 import { RequestInterceptor } from './request.interceptor';
 import { HomeComponent } from './home/home.component';
 import { VoteMenuComponent } from './vote-menu/vote-menu.component';
@@ -28,7 +27,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { MyVotesComponent } from './my-votes/my-votes.component';
+import { MyTopicsComponent } from './my-topics/my-topics.component';
 
 
 @NgModule({
@@ -36,9 +36,10 @@ import { Router } from '@angular/router';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ListComponent,
+    MyVotesComponent,
     HomeComponent,
     VoteMenuComponent,
+    MyTopicsComponent,
     CreatePollComponent,
     ProfileComponent,
     VoteResultsComponent,

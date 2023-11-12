@@ -3,14 +3,22 @@
   <div id="screenBox">
     <ul *ngFor="let topic of topics">
       <h3>{{topic.name}}</h3>
-      Polls:
+      <h3>Polls:</h3>
       <li *ngFor="let poll of topic.polls">
-        <div id>
+        <div>
           RoomCode:  {{poll.roomCode}}
         </div>
         <div>
-          <button (click)="getIotToken(poll.id)">Copy IoT Token.</button>
+          Start Time:  {{getDate(poll.startDate)}}
         </div>
+        <div>
+          End Time:  {{getDate(poll.endDate)}}
+        </div>
+        <div>
+          <button (click)="getIotToken(poll.id)">Copy IoT Token.</button>
+          <button (click)="toPoll(poll.roomCode)">Go to poll</button>
+        </div>
+        <br>
       </li>
     </ul>
   </div>
