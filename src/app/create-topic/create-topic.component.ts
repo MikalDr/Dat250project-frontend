@@ -83,7 +83,7 @@ export class CreateTopicComponent {
     this.http.post<any>(url, {
       "startDate":"2020-01-12T12:00:00",
       "endDate":  "2023-12-24T12:00:00",
-      "isPrivate": this.isPrivate
+      "private": this.isPrivate
     }).subscribe(res => {
       if (res) {
         this.router.navigate([""]);
