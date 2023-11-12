@@ -52,8 +52,29 @@ export class MyTopicsComponent implements OnInit {
     this.router.navigate([`/room/${roomCode}/result`]);
   }
 
-  getDate(dateList: number[]): string {
+  deletePoll(id : number){
+    this.http.delete<any>("/api/poll/" + id, {}).subscribe(res => {
+      if (res) {
+        console.log(res)
+        this.ngOnInit();
+      } else {
+        alert("Get IoT token failed.");
+      }
+    })
+  }
 
+  deleteTopic(id : number){
+    this.http.delete<any>("/api/topic/" + id, {}).subscribe(res => {
+      if (res) {
+        console.log(res)
+        this.ngOnInit();
+      } else {
+        alert("Get IoT token failed.");
+      }
+    })
+  }
+
+  getDate(dateList: number[]): string {
     const [year = 2000, month = 1, day = 1, hour = 1, minute = 0] = dateList;
     const date = new Date(year, month - 1, day, hour + 1, minute);
     let str = date.toISOString().split("T")

@@ -2,8 +2,8 @@
   <h1>My Topics</h1>
   <div id="screenBox">
     <ul *ngFor="let topic of topics">
-      <h3>{{topic.name}}</h3>
-      <h3>Polls:</h3>
+      <h2>{{topic.name}}</h2>
+      <button (click)="deleteTopic(topic.id)">DELETE TOPIC</button>
       <li *ngFor="let poll of topic.polls">
         <div>
           RoomCode:  {{poll.roomCode}}
@@ -17,6 +17,7 @@
         <div>
           <button (click)="getIotToken(poll.id)">Copy IoT Token.</button>
           <button (click)="toPoll(poll.roomCode)">Go to poll</button>
+          <button (click)="deletePoll(poll.id)">DELETE POLL</button>
         </div>
         <br>
       </li>
