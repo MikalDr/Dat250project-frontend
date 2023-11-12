@@ -13,7 +13,22 @@
         {{isPrivate}}
       </div>
       <div>
-        <p>DatePicker system (To be implemented)</p>
+        <p>Start Date:</p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input [(ngModel)]="startDate" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <p>Start Date:</p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input [(ngModel)]="endDate" matInput [matDatepicker]="picker2">
+          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
       </div>
       <div>
         <form>

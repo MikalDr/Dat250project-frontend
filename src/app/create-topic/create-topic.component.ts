@@ -14,11 +14,8 @@ export class CreateTopicComponent {
   public voteOptions: any = {"1":"Yes", "2":"No"};
   public voteOptionKeys: Set<any> = new Set(["1", "2"]);
 
-  minDate = new Date(2000, 1, 1);
-  maxDate = new Date(3000, 1, 1);
-
-  startDate = new Date(2001, 10, 5);
-  endDate = new Date(2030, 10, 5);
+  startDate = new Date(2023, 10, 13);
+  endDate = new Date(2023, 10, 13);
 
   topic = {
     name:"",
@@ -89,8 +86,8 @@ export class CreateTopicComponent {
   public sendPoll() {
     let url = "/api/poll/"+this.createdTopic;
     this.http.post<any>(url, {
-      "startDate":"2020-01-12T12:00:00",
-      "endDate":  "2023-12-24T12:00:00",
+      "startDate": this.startDate.toISOString(),
+      "endDate":  this.endDate.toISOString(),
       "private": this.isPrivate
     }).subscribe(res => {
       if (res) {
