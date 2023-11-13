@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,7 @@ export class RegisterComponent {
   };
   sessionId: any = {};
 
+  errorMessage: any = ""
 
   constructor(
       private router: Router,
@@ -38,6 +39,10 @@ export class RegisterComponent {
       } else {
         alert("Authentication failed.");
       }
-    })
+    },
+    (error:HttpErrorResponse) => {
+      this.errorMessage = error.headers.get("Message");
+    }
+    )
   }
 }

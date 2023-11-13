@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-create-poll',
@@ -16,7 +17,7 @@ export class CreatePollComponent {
   startDate = new Date();
   endDate = new Date();
 
-  constructor(private http: HttpClient, private router: Router,) {
+  constructor(private http: HttpClient, private router: Router,private clipboard: Clipboard) {
   }
 
   ngOnInit(): void {
@@ -67,6 +68,7 @@ export class CreatePollComponent {
       "private": this.isPrivate
     }).subscribe(res => {
       if (res) {
+        this.clipboard.copy(res.roomCode);
         this.router.navigate(["/my-topics"]);
       } else {
       }
