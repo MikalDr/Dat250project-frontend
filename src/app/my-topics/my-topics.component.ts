@@ -21,6 +21,9 @@ export class MyTopicsComponent implements OnInit {
     this.http.get<any>("/api/topic").pipe().subscribe((res) => {
       if (res) {
         this.topics = res
+        console.log(this.topics);
+        this.topics = this.topics.reverse();
+
         if (this.topics.length == 0) {
           this.confusedMessage = "You have no created Topics.";
           this.selectedTopic = null;
@@ -88,7 +91,7 @@ export class MyTopicsComponent implements OnInit {
 
   getDate(dateList: number[]): string {
     const [year = 2000, month = 1, day = 1, hour = 1, minute = 0] = dateList;
-    const date = new Date(year, month - 1, day, hour + 1, minute);
+    const date = new Date(year, month - 1, day, hour+1, minute);
     let str = date.toISOString().split("T")
     let dateString = str[0];
     let timeString = str[1].substring(0, 5);

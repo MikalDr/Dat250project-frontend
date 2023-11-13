@@ -13,8 +13,8 @@ export class CreatePollComponent {
   isPrivate: boolean = false;
   confusedMessage: string = "";
 
-  startDate = new Date(2023, 10, 13);
-  endDate = new Date(2023, 10, 13);
+  startDate = new Date();
+  endDate = new Date();
 
   constructor(private http: HttpClient, private router: Router,) {
   }
@@ -23,6 +23,12 @@ export class CreatePollComponent {
     if (!sessionStorage.getItem("token")) {
       this.router.navigate(["/login"]);
     }
+
+    // UTC +1 FIX TODO FIXIT
+    let now = new Date();
+    this.startDate.setHours(now.getHours() + 1);
+    this.endDate.setHours(now.getHours() + 1);
+
     this.getTopics();
   }
 

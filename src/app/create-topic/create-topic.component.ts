@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-create-topic',
@@ -14,8 +15,8 @@ export class CreateTopicComponent {
   public voteOptions: any = {"1":"Yes", "2":"No"};
   public voteOptionKeys: Set<any> = new Set(["1", "2"]);
 
-  startDate = new Date(2023, 10, 13);
-  endDate = new Date(2023, 10, 13);
+  startDate = new Date();
+  endDate = new Date();
 
   topic = {
     name:"",
@@ -31,12 +32,17 @@ export class CreateTopicComponent {
   constructor(
     private router: Router,
     private http: HttpClient,
+    private clipboard: Clipboard
   ) {}
 
   ngOnInit(): void {
     if(!sessionStorage.getItem("token")) {
       this.router.navigate(["/login"]);
     }
+    // UTC +1 FIX TODO FIXIT
+    let now = new Date();
+    this.startDate.setHours(now.getHours() + 1);
+    this.endDate.setHours(now.getHours() + 1);
   }
 
   public deleteOption(option: any) {
@@ -76,7 +82,7 @@ export class CreateTopicComponent {
       }).subscribe(res => {
         if (res) {
           this.createdTopic = res.id;
-          this.router.navigate([""]);
+          //this.router.navigate([""]);
           this.sendPoll()
         } else {
         }
@@ -91,7 +97,8 @@ export class CreateTopicComponent {
       "private": this.isPrivate
     }).subscribe(res => {
       if (res) {
-        this.router.navigate([""]);
+        this.clipboard.copy(res.roomCode);
+        this.router.navigate(["/my-topics"]);
       } else {
       }
     })
