@@ -19,8 +19,7 @@ interface Vote {
 })
 export class MyVotesComponent {
   votes: Vote[] = [];
-  selectedOption: any = {
-  };
+  selectedOption: any = {};
 
   confusedMessage: any = ""
 
@@ -42,11 +41,15 @@ export class MyVotesComponent {
         if(this.votes.length == 0){
           this.confusedMessage = "You have not voted on any poll."
         }
+        else{
+          this.selectedOption = this.votes[0].voteOption;
+        }
 
         res.forEach(vote => {
             this.http.get<any>("/api/poll/" + vote.poll).subscribe(res => {
               if (res) {
                 vote.poll = res;
+
               } else {
                 alert("Get poll failed.");
               }

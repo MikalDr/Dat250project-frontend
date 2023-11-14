@@ -12,7 +12,9 @@ body {
   text-align: center;
   margin: 0px;
   padding: 30px;
-  height: 100vh;
+  min-height: fit-content;
+  max-height: 90.6%;
+  overflow-y: auto;
   list-style-type: none;
 }
 

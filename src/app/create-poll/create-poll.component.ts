@@ -30,6 +30,9 @@ export class CreatePollComponent {
     this.startDate.setHours(now.getHours() + 1);
     this.endDate.setHours(now.getHours() + 1);
 
+    // 5 minute delay if end-date is not changed
+    this.endDate.setMinutes(now.getMinutes() + 5);
+
     this.getTopics();
   }
 
@@ -71,6 +74,7 @@ export class CreatePollComponent {
         this.clipboard.copy(res.roomCode);
         this.router.navigate(["/my-topics"]);
       } else {
+        alert("Could not create poll");
       }
     })
   }

@@ -43,6 +43,9 @@ export class CreateTopicComponent {
     let now = new Date();
     this.startDate.setHours(now.getHours() + 1);
     this.endDate.setHours(now.getHours() + 1);
+
+    // 5 minute delay if end-date is not changed
+    this.endDate.setMinutes(now.getMinutes() + 5);
   }
 
   public deleteOption(option: any) {

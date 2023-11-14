@@ -2,7 +2,7 @@
     <h1>My Votes</h1>
     <div id="screenBox">
         <p>{{confusedMessage}}</p>
-        <ul *ngFor="let vote of votes">
+        <div *ngFor="let vote of votes">
             <ng-container *ngIf="vote.poll.topic; else defaultValue">
                 <h3>Topic: {{vote.poll.topic.name}}</h3>
                 <h3>RoomCode: <a href="/room/{{vote.poll.roomCode}}/result">{{vote.poll.roomCode}}</a></h3>
@@ -10,8 +10,7 @@
 
                 <label for="voteChanger">Change vote: </label>
                 <select id="voteChanger" [(ngModel)]="selectedOption" (change)="onOptionSelected(vote.id)">
-                    <option *ngFor="let option of vote.poll.topic.voteOptions" [ngValue]="option">{{ option.label }}
-                    </option>
+                    <option *ngFor="let option of vote.poll.topic.voteOptions" [ngValue]="option">{{ option.label }}</option>
                 </select>
             </ng-container>
             <ng-template #defaultValue>
@@ -19,6 +18,6 @@
                 <h3>RoomCode: <a href="/room/{{vote.poll.roomCode}}/result">{{vote.poll.roomCode}}</a></h3>
                 <h3>Vote: {{vote.voteOption.label}}</h3>
             </ng-template>
-        </ul>
+        </div>
     </div>
 </body>
