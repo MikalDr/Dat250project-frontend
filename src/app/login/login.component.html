@@ -1,6 +1,7 @@
 <body>
   <h1>Login</h1>
   <form name="form" (ngSubmit)="login()" #f="ngForm" id ="screenBox">
+    <p class="errorMessage">{{errorMessage}}</p>
     <div>
         <label for="username">Username</label>
         <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required />
