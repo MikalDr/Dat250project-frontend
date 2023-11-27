@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
+### Run container
+to start the container use:
+1. `docker pull mikaldr/dat250-project-frontend:latest`
+1. `docker run -e BACKEND_URL=http://backend-container-ip:8080 -p 80:80 mikaldr/dat250-project-frontend:latest`
+   remember to set the backend_url to whatever you backend containers ip is.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
