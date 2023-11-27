@@ -21,7 +21,7 @@ export class VoteResultsComponent {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe( params => {
-      this.id = +params["id"];
+      this.id = params["id"];
       this.loadVotes();
       this.loadRoom();
     })
@@ -49,5 +49,18 @@ export class VoteResultsComponent {
         alert("Authentication failed.");
       }
     })
+  }
+
+  roundDownPercentage(voteCount: number, totalVotes: number): number {
+    return Math.floor((voteCount / totalVotes) * 100);
+  }
+
+  getRandomColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 }

@@ -1,19 +1,23 @@
-<div>
-  <h1> Welcome to FeedApp! </h1>
+<body>
+ <div>
+    <h1> Welcome to FeedApp! </h1>
+      <div id="screenBox">
+        <!-- Connect to room -->
+        <div>
+            <label for="roomCode">RoomCode: </label>
+            <p class = errorMessage>{{errorMessage}}</p>
+            <input type="text" name="roomCode" [(ngModel)]="roomCode" #username="ngModel" required/>
+            <button type = button (click)='connectToRoom()'> Join room </button>
+        </div>
 
-    <!-- Connect to room -->
-    <div>
-        <label for="roomCode">RoomCode: </label>
-        <input type="text" name="roomCode" [(ngModel)]="roomCode" #username="ngModel" required/>
-        <button type = button (click)='connectToRoom()'> Join room </button>
-    <div>
+        <!-- Links to other pages -->
+        <div id="loginBox">
+          <button type = button (click)="goToProfile()"> Profile </button>
+        </div>
 
-    <!-- Links to other pages -->
-    <div>
-      <button type = button (click)="goToProfile()"> Profile </button>
+        <div id="loginBox">
+          <button type = button (click)="goToCreateTopic()" > Create Topic </button>
+        </div>
+      </div>
     </div>
-
-    <div>
-      <button type = button (click)="goToCreateTopic()" > Create Topic </button>
-    </div>
-  </div>
+</body>

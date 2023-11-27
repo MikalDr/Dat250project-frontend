@@ -5,7 +5,15 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
       const router: Router = inject(Router);
 
     //URLS accessable without login are put like this
+    if(state.url= "/") {
+      return true;
+    }
+
     if (state.url == "/room/*") {
+      return true;
+    }
+
+    if( state.url == "") {
       return true;
     }
 

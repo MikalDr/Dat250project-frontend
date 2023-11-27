@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ export class HomeComponent {
 
 public roomCode: any;
 public roomData: any;
+public errorMessage: any;
 
   constructor(
     private router: Router,
@@ -24,13 +25,17 @@ public roomData: any;
   }
 
   public connectToRoom(){
-    this.router.navigate(["/room/"+this.roomCode]);
     this.http.get<any>("/api/poll?roomCode="+ this.roomCode).subscribe(res => {
       if (res) {
         this.roomData = res;
+        this.router.navigate(["/room/"+this.roomCode]);
       } else {
         alert("Authentication failed.");
       }
-    })
+    },
+    (error:HttpErrorResponse) => {
+      this.errorMessage = error.headers.get("Message")
+    }
+    )
   }
 }

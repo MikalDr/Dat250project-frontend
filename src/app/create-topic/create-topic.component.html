@@ -1,2 +1,53 @@
+<<<<<<< HEAD
 <p>create-topic works!</p>
 
+=======
+<body>
+ <div>
+    <h1>Create Topic</h1>
+    <div id="screenBox">
+      <p class="errorMessage">{{errorMessage}}</p>
+      <div>
+        <label for="topicName">Topic Name:</label>
+        <input type="text" [(ngModel)]="topic.name" name="topicName" value = "My Topic">
+      </div>
+      <div>
+        <label for="private-slider">Private</label>
+        <mat-slide-toggle [(ngModel)]="isPrivate" name="private-slider"></mat-slide-toggle>
+        {{isPrivate}}
+      </div>
+      <div>
+        <p>Start Date:</p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input [(ngModel)]="startDate" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <p>End Date:</p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input [(ngModel)]="endDate" matInput [matDatepicker]="picker2">
+          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <form>
+          <p>Add options:</p>
+          <li *ngFor="let key of voteOptionKeys">
+            <input [(ngModel)]="voteOptions[key]" value="{{voteOptions[key]}}" [ngModelOptions]="{standalone: true}">
+            <button (click)="deleteOption(key)" id="removeButton">X</button>
+          </li>
+          <button (click)="addOption()" id="loginBox">+</button>
+        </form>
+      </div>
+      <div id="loginBox">
+        <button (click)="sendTopic()">Send Topic</button>
+      </div>
+    </div>
+  </div>
+</body>
+>>>>>>> 6a7c4d8e24c011131ca22e7fcb97a1fa17207dba

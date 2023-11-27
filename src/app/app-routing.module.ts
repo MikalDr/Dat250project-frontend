@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authenticationGuard } from './authentication.guard';
-import { ListComponent } from './list/list.component';
+import { MyTopicsComponent } from './my-topics/my-topics.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -10,6 +10,8 @@ import { VoteResultsComponent } from './vote-results/vote-results.component';
 import { HomeLoggedComponent } from './home-logged/home-logged.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
+import { MyVotesComponent } from './my-votes/my-votes.component';
+import { CreatePollComponent } from './create-poll/create-poll.component';
 
 const routes: Routes = [
   {path: "", canActivate:[authenticationGuard], children:[
@@ -17,10 +19,12 @@ const routes: Routes = [
     { path: "home", component: HomeLoggedComponent},
     { path: "register", component: RegisterComponent},
     { path: "login", component: LoginComponent},
-    { path: "my-topics", component: ListComponent},
+    { path: "my-topics", component: MyTopicsComponent},
+    { path: "my-votes", component: MyVotesComponent},
     { path: "room/:id", component: VoteMenuComponent},
     { path: "profile", component: ProfileComponent},
     { path: "create-topic", component: CreateTopicComponent},
+    { path: "create-poll", component: CreatePollComponent},
     { path: "room/:id/result", component: VoteResultsComponent},
     { path: "**", redirectTo: ""}
   ]}

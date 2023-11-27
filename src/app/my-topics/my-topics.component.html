@@ -1,0 +1,45 @@
+<body>
+  <h1>My Topics</h1>
+  <div id="screenBox">
+    <label for="topicChanger">Selected Topic</label>
+    <select id="topicChanger" [(ngModel)]="selectedTopic">
+      <option *ngFor="let topic of topics" [ngValue]="topic">{{ topic.name }}</option>
+    </select>
+
+    <a href="/create-topic"><p>{{confusedMessage}}</p></a>
+
+    <ng-container *ngIf="selectedTopic; else defaultValue">
+      <h2>{{selectedTopic.name}}</h2>
+      <button (click)="deleteTopic(selectedTopic.id)">DELETE TOPIC</button>
+      <ul *ngFor="let poll of selectedTopic.polls" class="MikalBox">
+      <br>
+        <div>
+          RoomCode:  {{poll.roomCode}}
+        </div>
+        <div>
+          Start Time:  {{getDate(poll.startDate)}}
+        </div>
+        <div>
+          End Time:  {{getDate(poll.endDate)}}
+        </div>
+        <div>
+          Private:  {{poll.private}}
+        </div>
+        <div>
+          <button (click)="getIotToken(poll.id)">Copy IoT Token.</button>
+          <button (click)="toPoll(poll.roomCode)">Go to poll</button>
+          <br>
+          <button (click)="deletePoll(poll.id)">DELETE POLL</button>
+          <br>
+        </div>
+        <br>
+      </ul>
+    </ng-container>
+    <ng-template #defaultValue>
+
+    </ng-template>
+    <div>
+    <button (click)="toCreatePoll()">Create Poll</button>
+    </div>
+  </div>
+</body>

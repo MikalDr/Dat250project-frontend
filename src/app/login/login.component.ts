@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,35 +9,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  errorMessage: any = "";
+  model: any = {
+  };
+  sessionId: any = {};
 
-    model: any = {
-    };
-    sessionId: any = {};
+  constructor(
+    private router: Router,
+    private http: HttpClient
+  ) { }
 
-    constructor(
-        private router: Router,
-        private http: HttpClient
-    ) {}
+  ngOnInit(): void {
+  }
 
-    ngOnInit(): void {
-    }
+  public login() {
+    let url = "/api/login";
+    this.http.post<any>(url, {
+      username: this.model.username,
+      password: this.model.password
+    }).subscribe(res => {
+      if (res) {
+        this.sessionId = res.sessionId;
 
-    public login(){
-      let url = "/api/login";
-      this.http.post<any>(url, {
-        username: this.model.username,
-        password: this.model.password
-      }).subscribe(res => {
-        if (res) {
-          this.sessionId = res.sessionId;
-
-          sessionStorage.setItem(
-            "token", this.sessionId
-          );
-          this.router.navigate([""]);
-        } else {
-          alert("Authentication failed.");
-        }
-      })
-    }
+        sessionStorage.setItem(
+          "token", this.sessionId
+        );
+        this.router.navigate([""]);
+      } else {
+        alert("Authentication failed.");
+      }
+    },
+    (error:HttpErrorResponse) => {
+      this.errorMessage = error.headers.get("Message");
+      if (error.status == 401){
+        this.errorMessage = "Invalid Credentials";
+      }
+    })
+  }
 }
