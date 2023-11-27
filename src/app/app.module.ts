@@ -13,12 +13,10 @@ import { VoteMenuComponent } from './vote-menu/vote-menu.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
 import { ProfileComponent } from './profile/profile.component';
 import { VoteResultsComponent } from './vote-results/vote-results.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 import { HeaderComponent } from './header/header.component';
 import { HomeLoggedComponent } from './home-logged/home-logged.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
-<<<<<<< HEAD
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-=======
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
@@ -32,7 +30,6 @@ import { DatePipe } from '@angular/common';
 import { MyVotesComponent } from './my-votes/my-votes.component';
 import { MyTopicsComponent } from './my-topics/my-topics.component';
 
->>>>>>> 6a7c4d8e24c011131ca22e7fcb97a1fa17207dba
 
 @NgModule({
   declarations: [
@@ -48,20 +45,13 @@ import { MyTopicsComponent } from './my-topics/my-topics.component';
     VoteResultsComponent,
     HeaderComponent,
     HomeLoggedComponent,
-<<<<<<< HEAD
-    CreateTopicComponent,
-
-=======
     CreateTopicComponent
->>>>>>> 6a7c4d8e24c011131ca22e7fcb97a1fa17207dba
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-<<<<<<< HEAD
-=======
     NgApexchartsModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
@@ -72,7 +62,6 @@ import { MyTopicsComponent } from './my-topics/my-topics.component';
     MatNativeDateModule,
     ClipboardModule,
     DatePipe
->>>>>>> 6a7c4d8e24c011131ca22e7fcb97a1fa17207dba
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
