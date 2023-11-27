@@ -8,7 +8,7 @@ RUN npm install
 RUN npm run build --prod
 
 # Stage 2: Serve the app with nginx
-FROM nginx:lastest
+FROM nginx:alpine
 COPY --from=build /app/dist/frontend /usr/share/nginx/html
 COPY config/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
