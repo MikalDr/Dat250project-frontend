@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular app
-FROM node:12.14-alpine AS build
+FROM node:10.2-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm cache clean --force
