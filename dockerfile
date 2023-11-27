@@ -1,13 +1,14 @@
 # Stage 1: Build the Angular app
-FROM node:10.2.0 as build
+FROM node:12.14-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm cache clean --force
 COPY . .
-RUN npm run build
+RUN npm install
+RUN npm run build --prod
 
 # Stage 2: Serve the app with nginx
-FROM nginx:alpine
+FROM nginx:lastest
 COPY --from=build /app/dist/frontend /usr/share/nginx/html
 COPY config/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
