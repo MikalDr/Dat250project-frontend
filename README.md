@@ -6,7 +6,7 @@ The back-end can be found at: [https://github.com/Thomas-Johansen/dat250Project]
 ---
 
 ### Deploy the application.
-[![FeedApp Image build](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/docker-build.yml)
+[![FeedApp Image build](../../actions/workflows/docker-build.yml/badge.svg)](../../actions/workflows/docker-build.yml)
 
 The frontend application is deployable using docker. Following the commands below you can run the application.
 
