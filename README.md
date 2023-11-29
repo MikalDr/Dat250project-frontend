@@ -7,6 +7,8 @@ The back-end can be found at: [https://github.com/Thomas-Johansen/dat250Project]
 to start the container use:
 1. `docker pull mikaldr/dat250-project-frontend:latest`
 2. `docker run -d -p 80:80 mikaldr/dat250-project-frontend:latest`
+
+
 Your frontend should now be running at your http://localhost:80. If you have also
 deployed [back-end](https://github.com/Thomas-Johansen/dat250Project), the site itself should be operational
 
